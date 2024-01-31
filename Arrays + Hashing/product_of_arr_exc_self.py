@@ -4,7 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        # Split multiplication into a left part and a right part
+
+        """Approach:
+            Essentially, here we are reusing calculations that we have already made
+            We first multiply everything in the array by the number to the left of it (obviously ignoring the first element)
+            Then we go backwards, multiplying everything in the array by the number to the right of it
+            Therefore, we get a time complexity of O(N), where N is the length of the array
+        """
         length = len(nums)
         result = [1] * length
         for i in range(1, length):
@@ -20,6 +26,18 @@ class Solution(object):
             right *= nums[i]
 
         return result
+    
+
+if __name__ == "__main__":
+    sol = Solution()
+    # Define a test list
+    test_list = [1, 2, 3, 4]
+
+    # Call the productExceptSelf method with the test list
+    result = sol.productExceptSelf(test_list)
+
+    # Print the result
+    print(result)
         
 
 
